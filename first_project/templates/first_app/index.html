@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Me and Sue</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <h2>Hello, This is a picture of me and Sue</h2>
+    {{ insert_me }} <br>
+    {{ also_me  }} <br>
+    {{one_more}} <br>   
+
+    <img src="{% static "images/Sue.jpg" %}" alt="" class="sue">
+
+    <h1>Django Level Two</h1>
+    <h2>Access Records from database (Musician)</h2>
+    <div class="djangtwo">
+        {% if musician_list %}
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Instrument</th>
+            </thead>
+            {% for acc in musician_list %}
+            <tr>
+                <td>{{acc.last_name}}</td>
+                <td>{{acc.instrument}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {% else %}
+        <p>NO RECORDS FOUND</p>
+
+        {% endif %}
+    </div>
+
+    
+    
+</body>
+</html>
